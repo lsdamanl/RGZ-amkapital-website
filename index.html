@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ООО "АМКапитал"</title>
+    <link rel="icon" href="pictures/favicon-32x32.png">
+    <link rel="icon" href="pictures/favicon-16x16.png">
+    <style>
+        @font-face {
+            font-family: 'MetaCyrLF-Roman';
+            src: url('pictures/MetaNormalCyrLF-Roman.woff2') format('truetype');
+            /* Добавьте другие форматы шрифта, если есть */
+        }
+        body {
+            margin: 0;
+            font-family: "MetaCyrLF-Roman", sans-serif;
+            background-color: #fafcfd;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: white;
+            z-index: 1000;
+            border-bottom: 1px solid rgb(219, 219, 219);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+        }
+
+        .logo {
+            display: flex;
+            justify-content: start;
+            align-items: center;
+        }
+
+        .logo img {
+            margin-right: 500px;
+        }
+
+        .logo a {
+            margin-right: 20px;
+            color: rgb(71, 71, 71);
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        .logo a:hover {
+            color: #2A7D9E;
+        }
+
+        .logo a.active {
+            color: #2A7D9E;
+            font-weight: bold;
+        }
+
+        .card {
+            border-radius: 15px;
+            padding: 15px;
+            margin: 10px;
+            margin-top: 40px;
+            font-weight: 400;
+            width: 367px;
+            height: 150px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #e8f1f9;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 80px 20px 20px;
+        }
+
+        .card img {
+            width: 190px;
+            height: auto;
+            margin-left: auto;
+            
+        }
+
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            
+        }
+
+        .card h2 {
+            margin: 0;
+            font-size: 20px;
+            color: #333;
+            white-space: nowrap;
+        }
+
+        .card a {
+            margin-top: 70px;
+            color: #2A7D9E;
+            text-decoration: underline;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .available-cars {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .available-cars h2 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .car-brands {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .car-brand {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 30px;
+        }
+
+        .car-brand img {
+            width: 70px;
+            height: 70px;
+        }
+
+        .car-brand span {
+            font-size: 16px;
+            color: #333;
+            margin-top: 10px;
+        }
+
+        .cars-list-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px auto;
+            max-width: 74%; 
+            background-color: #ffffff;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid #2A7D9E;
+            position: relative;
+            
+        }
+
+         .cars-list-container::before {
+            content: "ПОПУЛЯРНЫЕ МОДЕЛИ";
+            position: absolute;
+            top: -15px; 
+            left: 20px;
+            background-color: #ffffff;
+            padding: 0 10px;
+            color: #2A7D9E;
+            font-size: 20px;
+            font-weight: bold;
+            width: max-content;
+            
+        }
+
+        .cars-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .car-card {
+            border-radius: 15px;
+            padding: 15px;
+            margin: 10px;
+            width: 300px;
+            background-color: #ffffff;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .car-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .car-card h3 {
+            margin: 10px 0;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .car-card p {
+            margin: 5px 0;
+            font-size: 12px;
+            color: #b3b3b3;
+        }
+
+        .highlight {
+            color: #2A7D9E;
+            font-size: 18px;
+        }
+
+        .availability {
+            font-size: 18px;
+            color: #000000;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html"><img src="pictures/logo.png" alt="АМКапитал Логотип" width="175px" height="65px"></a>
+                <a href="index.html" class="active">Главная</a>
+                <a href="about.html">О компании</a>
+                <a href="news.html">Новости</a>
+                <a href="currency.html">Курс валют</a>
+                <a href="contacts.html">Контакты</a>
+                <a href="video.html">Видео</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="card">
+            <div class="card-content">
+                <h2>Новые авто</h2>
+                <a href="https://nsk.avtomir.ru/new-cars/">Подробнее</a>
+            </div>
+            <img src="pictures/blue-auto.png" alt="Новые авто">
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <h2>Авто с пробегом</h2>
+                <a href="https://nsk.avtomir.ru/used-cars/">Подробнее</a>
+            </div>
+            <img src="pictures/white-auto.png" alt="Авто с пробегом">
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <h2>Сервис</h2>
+                <a href="https://nsk.avtomir.ru/service/">Подробнее</a>
+            </div>
+            <img src="pictures/serviceph.png" alt="Сервис">
+        </div>
+    </main>
+    <div class="available-cars">
+        <h2>Автомобили в наличии</h2>
+        <div class="car-brands">
+            <div class="car-brand">
+                <img src="pictures/geely.png" alt="Geely">
+                <span>Geely</span>
+            </div>
+            <div class="car-brand">
+                <img src="pictures/changan.png" alt="Changan">
+                <span>Changan</span>
+            </div>
+            <div class="car-brand">
+                <img src="pictures/exeed.png" alt="Exeed">
+                <span>Exeed</span>
+            </div>
+            <div class="car-brand">
+                <img src="pictures/suzuki.png" alt="Suzuki">
+                <span>Suzuki</span>
+            </div>
+            <div class="car-brand">
+                <img src="pictures/tank.png" alt="Tank">
+                <span>Tank</span>
+            </div>
+            <div class="car-brand">
+                <img src="pictures/toyota.png" alt="Toyota">
+                <span>Toyota</span>
+            </div>
+            <div class="car-brand">
+                <img src="pictures/belgee.png" alt="Belgee">
+                <span>Belgee</span>
+            </div>
+            <div class="car-brand">
+                <img src="pictures/ora.png" alt="Ora">
+                <span>Ora</span>
+            </div>
+            <div class="car-brand">
+                <img src="pictures/haval.png" alt="Haval">
+                <span>Haval</span>
+            </div>
+            <div class="car-brand">
+                <img src="pictures/zeekr.png" alt="Zeekr">
+                <span>Zeekr</span>
+            </div>
+        </div>
+    </div>
+    <div class="cars-list-container">
+        <div class="cars-list">
+            <div class="car-card">
+                <img src="pictures/coolray.png" alt="Geely Coolray Новый">
+                <h3>Geely Coolray Новый</h3>
+                <p>Год выпуска: 2023</p>
+                <p>Кузов: <span class="highlight">Кроссовер</span></p>
+                <p>В наличии: <span class="availability">16 авто</span></p>
+                <p style="color: black; font-size: 25px;">от 2 009 990 р.</p>
+            </div>
+            <div class="car-card">
+                <img src="pictures/monjaro.png" alt="Geely Monjaro">
+                <h3>Geely Monjaro</h3>
+                <p>Год выпуска: 2023</p>
+                <p>Кузов: <span class="highlight">Внедорожник</span></p>
+                <p>В наличии: <span class="availability">23 авто</span></p>
+                <p style="color: black; font-size: 25px;">от 4 094 990 р.</p>
+            </div>
+            <div class="car-card">
+                <img src="pictures/tugella.png" alt="Geely Tugella">
+                <h3>Geely Tugella</h3>
+                <p>Год выпуска: 2023</p>
+                <p>Кузов: <span class="highlight">Кроссовер Легковой</span></p>
+                <p>В наличии: <span class="availability">17 авто</span></p>
+                <p style="color: black; font-size: 25px;">от 3 189 990 р.</p>
+            </div>
+            <div class="car-card">
+                <img src="pictures/atlas.jpg" alt="Geely Atlas Pro">
+                <h3>Geely Atlas Pro</h3>
+                <p>Год выпуска: 2024</p>
+                <p>Кузов: <span class="highlight">Кроссовер</span></p>
+                <p>В наличии: <span class="availability">17 авто</span></p>
+                <p style="color: black; font-size: 25px;">от 2 083 990 р.</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+
+    </footer>
+</body>
+
+</html>
