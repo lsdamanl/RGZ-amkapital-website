@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Контактные данные - ООО "АМКапитал"</title>
+    <link rel="icon" href="pictures/favicon-32x32.png">
+    <link rel="icon" href="pictures/favicon-16x16.png">
+    <link rel="stylesheet" href="main.css">
+    
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+    <script type="text/javascript">
+        ymaps.ready(init);
+        function init() {
+            let myMap = new ymaps.Map("map", {
+                center: [54.995880, 82.751421],
+                zoom: 9
+            });
+
+            let locations = [
+                { coordinates: [54.940585, 82.933700], hint: 'Автомир, официальный дилер Hyundai', balloon: 'Новосибирск, ул. Петухова, д. 87' },
+                { coordinates: [54.940442, 82.933853], hint: 'Автомир, официальный дилер Renault', balloon: 'Новосибирск, ул. Петухова, д. 87' },
+                { coordinates: [54.940653, 82.933756], hint: 'Škoda, Автомир Богемия Новосибирск', balloon: 'Новосибирск, ул. Петухова, д. 87' },
+                { coordinates: [54.940940, 82.934225], hint: 'Автомир, Volkswagen', balloon: 'Новосибирск, ул. Петухова, д. 87' },
+                { coordinates: [54.940545, 82.934080], hint: 'Автомир, Changan', balloon: 'Новосибирск, ул. Петухова, д. 87' },
+                { coordinates: [54.941183, 82.934147], hint: 'Автомир, официальный сервис Suzuki', balloon: 'Новосибирск, ул. Петухова, д. 87' },
+                { coordinates: [54.940718, 82.933704], hint: 'Автомир, официальный дилер Audi', balloon: 'Новосибирск, ул. Петухова, д. 87' },
+                { coordinates: [54.996155, 82.751463], hint: 'Автомир, официальный дилер Geely', balloon: 'Новосибирск, ул. Станционная, д. 101 Автомир - Дилерский центр' },
+                { coordinates: [54.995783, 82.751380], hint: 'Автомир, официальный дилер Toyota', balloon: 'Новосибирск, ул. Станционная, д. 101 Автомир - Дилерский центр' },
+                { coordinates: [54.996121, 82.751142], hint: 'Автомир, Belgee', balloon: 'Новосибирск, ул. Станционная, д. 101 Автомир - Дилерский центр' },
+                { coordinates: [54.995880, 82.751421], hint: 'Автомир, Tank', balloon: 'Новосибирск, ул. Станционная, д. 101 Автомир - Дилерский центр' },
+                { coordinates: [54.996155, 82.751720], hint: 'Автомир, Ora', balloon: 'Новосибирск, ул. Станционная, д. 101 Автомир - Дилерский центр' }
+            ];
+
+            let customIcon = {
+                iconLayout: 'default#image',
+                iconImageHref: 'pictures/marker-active.svg',
+                iconImageSize: [30, 42],
+                iconImageOffset: [-15, -42]
+            };
+
+            let geoObjects = locations.map(function(location) {
+                return new ymaps.Placemark(location.coordinates, {
+                    hintContent: location.hint,
+                    balloonContent: location.balloon
+                }, customIcon);
+            });
+
+            let clusterer = new ymaps.Clusterer({
+                preset: 'islands#invertedVioletClusterIcons',
+                clusterIcons: [
+                    {
+                        href: 'pictures/marker-active.svg',
+                        size: [40, 40],
+                        offset: [-20, -20]
+                    }
+                ],
+                clusterNumbers: [10],
+                clusterIconContentLayout: ymaps.templateLayoutFactory.createClass(
+                    '<div style="color: #FFFFFF; font-weight: bold;">{{ properties.geoObjects.length }}</div>'
+                )
+            });
+
+            clusterer.add(geoObjects);
+            myMap.geoObjects.add(clusterer);
+        }
+    </script>
+    <style>
+        .page-title {
+            text-align: center;
+        }
+        a {
+            color: #272727;
+            text-decoration: none;
+            outline: none;
+            transition: .2s;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html"><img src="pictures/logo.png" alt="АМКапитал Логотип" width="175px" height="65px"></a>
+                <a href="index.html">Главная</a>
+                <a href="about.html">О компании</a>
+                <a href="news.html">Новости</a>
+                <a href="currency.html">Курс валют</a>
+                <a href="contacts.html" class="active">Контактные данные</a>
+                <a href="video.html">Видео</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div id="map"></div>
+        <h1 class="page-title">Контактная информация</h1>
+        <div class="service__contacts-row">
+            <div class="service__contacts-left">
+                <div class="service__contacts-col">
+                    <div class="service__contacts-item">
+                        <div class="service__contacts-title">Клиентская служба</div>
+                        <a href="mailto:info@avtomir.ru" class="service__contacts-mail">
+                            <img src="pictures/pismo.png">info@avtomir.ru
+                        </a>
+                        <a href="tel:+74959567732" class="service__contacts-phone">
+                            <img src="pictures/phonee.png">+7 (495) 956-77-32
+                        </a>
+                    </div>
+                </div>
+                <div class="service__contacts-col">
+                    <div class="service__contacts-item">
+                        <div class="service__contacts-title">Финансовая служба</div>
+                        <a href="mailto:fin@avtomir.ru" class="service__contacts-mail">
+                            <img src="pictures/pismo.png">fin@avtomir.ru
+                        </a>
+                        <a href="mailto:bonds@kr.avtomir.ru" class="service__contacts-mail">
+                            <img src="pictures/pismo.png">bonds@kr.avtomir.ru
+                        </a>
+                    </div>
+                </div>
+                <div class="service__contacts-col">
+                    <div class="service__contacts-item">
+                        <div class="service__contacts-title">Управление по персоналу</div>
+                        <a href="mailto:hr@avtomir.ru" class="service__contacts-mail">
+                            <img src="pictures/pismo.png">hr@avtomir.ru
+                        </a>
+                        <a href="tel:+74959567729" class="service__contacts-phone">
+                            <img src="pictures/phonee.png">+7 (495) 956-77-29
+                        </a>
+                        <a href="tel:+74952326437" class="service__contacts-phone">
+                            <img src="pictures/phonee.png">+7 (495) 232-64-37
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="service__contacts-right">
+                <div class="service__contacts-col">
+                    <div class="service__contacts-item">
+                        <div class="service__contacts-title">Развитие бизнеса</div>
+                        <p>Предложения по аренде зданий существующих дилерских центров можете направлять в Управление развития и недвижимости</p>
+                        <a href="mailto:partner@kr.avtomir.ru" class="service__contacts-mail">
+                            <img src="pictures/pismo.png">partner@kr.avtomir.ru
+                        </a>
+                        <a href="tel:+74959568822" class="service__contacts-phone">
+                            <img src="pictures/phonee.png">+7 (495) 956-88-22 (доб. 993302)
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        
+    </footer>
+</body>
+</html>
