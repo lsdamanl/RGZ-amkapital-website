@@ -375,3 +375,150 @@
         .facts__text1 p {
             margin: 0;
         }
+        button {
+            appearance: auto;
+            text-rendering: auto;
+            letter-spacing: normal;
+            word-spacing: normal;
+            line-height: normal;
+            text-transform: none;
+            text-indent: 0px;
+            text-shadow: none;
+            display: inline-block;
+            text-align: center;
+            align-items: flex-start;
+            cursor: default;
+            box-sizing: border-box;
+            margin: 0em;
+            padding-block: 1px;
+            padding-inline: 6px;
+            border-width: 2px;
+            border-style: outset;
+            border-color: buttonborder;
+            border-image: initial;
+        }
+
+        li {
+            display: list-item;
+            text-align: -webkit-match-parent;
+        }
+
+        .special-slider_news {
+            display: flex;
+            flex-wrap: wrap;
+            background: none;
+            padding-bottom: 0;
+            padding-top: 0;
+        }
+
+        .special-slider {
+            background: #FAFCFD;
+            padding: 30px 0;
+        }
+        
+
+        .special-slider_news .special-slider__item {
+            flex: 1 1 calc(33.333% - 20px); /* Each item will take up one-third of the container width minus margin */
+            box-sizing: border-box;
+            margin-right: 20px;
+            margin-bottom: 20px;
+            max-height: 400px;
+            border: 1px solid #D5D5D5;
+            border-radius: 15px;
+            padding: 25px;
+            color: black;
+            transition: border-color 0.3s ease; /* Add transition for border color */
+        }
+
+        .special-slider__item:hover {
+            border-color: #2A7D9E; /* Change border color on hover */
+        }
+
+        .special-slider__item--fix-height {
+            overflow: hidden;
+            max-height: 280px;
+            min-height: 200px;
+            position: relative;
+        }
+
+        .special-slider__item {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            border: 1px solid #D5D5D5;
+            border-radius: 15px;
+            padding: 25px;
+            color: black;
+            transition: .2s;
+        }
+
+        .special-slider__cats {
+            margin-bottom: 10px;
+            pointer-events: none;
+        }
+
+        .special-slider__cats a {
+            display: inline-block;
+            color: #2A7D9E;
+            font-size: 14px;
+            font-weight: 400;
+            border-bottom: 1px solid transparent;
+            margin-right: 20px;
+        }
+
+        .special-slider__date {
+            font-size: 14px;
+            color: #BABBCA;
+            margin: 10px 0;
+        }
+
+        .special-slider__name {
+            font-weight: 500;
+            font-size: 22px;
+            margin-bottom: 20px;
+            font-family: "MetaCyrLF-RomanMedium", sans-serif;
+        }
+
+        .special-slider__item--fix-height .special-slider__text {
+            margin-bottom: 40px;
+        }
+
+        .special-slider__text {
+            flex-grow: 1;
+            display: block;
+            font-size: 16px;
+            line-height: 25px;
+            margin-bottom: 15px;
+            color: #272727; 
+        }
+
+        .special-slider__item--fix-height .special-slider__link {
+            position: absolute;
+            bottom: 25px;
+            left: 25px;
+            z-index: 2;
+            color: #2A7D9E; 
+            text-decoration: none; 
+        }
+        .special-slider__link:hover {
+            text-decoration: underline; 
+        }
+        .special-slider__link {
+            align-self: flex-start;
+            display: inline-block;
+            color: #2A7D9E;
+            font-size: 14px;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+        }
+
+        element.style {
+            visibility: hidden;
+            position: absolute;
+            width: 100%;
+            top: -10000px;
+            left: 0px;
+            right: 0px;
+            transition: visibility 0s linear 0.3s, opacity 0.3s linear 0s;
+            opacity: 0;
+        }
