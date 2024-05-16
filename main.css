@@ -418,7 +418,7 @@
         
 
         .special-slider_news .special-slider__item {
-            flex: 1 1 calc(33.333% - 20px); /* Each item will take up one-third of the container width minus margin */
+            flex: 1 1 calc(33.333% - 20px); 
             box-sizing: border-box;
             margin-right: 20px;
             margin-bottom: 20px;
@@ -427,11 +427,11 @@
             border-radius: 15px;
             padding: 25px;
             color: black;
-            transition: border-color 0.3s ease; /* Add transition for border color */
+            transition: border-color 0.3s ease; 
         }
 
         .special-slider__item:hover {
-            border-color: #2A7D9E; /* Change border color on hover */
+            border-color: #2A7D9E; 
         }
 
         .special-slider__item--fix-height {
@@ -521,4 +521,103 @@
             right: 0px;
             transition: visibility 0s linear 0.3s, opacity 0.3s linear 0s;
             opacity: 0;
+        }
+
+
+                                                                             /* currency.html */ 
+
+        .currency-body{
+            margin: 0;
+            font-family:"MetaCyrLF-Roman", sans-serif;
+            background-color: #fafcfd;
+            color: #272727;
+            font-size: 16px;
+            background-image: url('pictures/history_bg.png'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .content-currency {
+            width: 400px; 
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed; 
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); 
+        }
+
+       
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        input[type="number"] {
+            width: 160px;
+            padding: 5px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+       
+
+        button {
+            padding: 5px 10px;
+            background-color: #2A7D9E;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2A7D9E;
+        }
+
+        .currency-converter {
+            background-color: #e8f1f9;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .currency-converter h2 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .currency-converter label {
+            
+            display: block;
+            margin-top: 10px;
+        }
+
+        .currency-converter input[type="number"] {
+            width: 120px;
+            padding: 5px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .currency-converter button {
+           
+            background-color: #2A7D9E;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px 0; 
+        }
+
+        .currency-converter button:hover {
+            background-color: #178bb9;
         }
