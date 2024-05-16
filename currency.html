@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Курс валют - ООО "АМКапитал"</title>
+    <link rel="icon" href="pictures/favicon-32x32.png">
+    <link rel="icon" href="pictures/favicon-16x16.png">
+    <link rel="stylesheet" href="main.css">
+    <style>
+         h1 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        h1, p, .currency-converter h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="currency-body">
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html"><img src="pictures/logo.png" alt="АМКапитал Логотип" width="175px" height="65px"></a>
+                <a href="index.html">Главная</a>
+                <a href="about.html">О компании</a>
+                <a href="news.html">Новости</a>
+                <a href="currency.html" class="active">Курс валют</a>
+                <a href="contacts.html">Контактные данные</a>
+                <a href="video.html">Видео</a>
+            </div>
+        </div>
+    </header>
+    <div class="content-currency">
+        <h1>Курс валют</h1>
+        <p style="font-family: MetaCyrLF-RomanMedium , sans-serif;">Актуальный курс нового туркменского маната (TMT): <span id="exchange-rate">Загрузка...</span></p>
+        <div class="currency-converter">
+            <h2>Калькулятор валют</h2>
+            <label for="rub">Рубли:</label>
+            <input type="number" id="rub" placeholder="Введите сумму в рублях">
+            <label for="tmt">Новый туркменский манат (TMT):</label>
+            <input type="number" id="tmt" placeholder="Введите сумму в TMT">
+            <button  onclick="convertToTMT()">Рубли в TMT</button>
+            <button onclick="convertToRUB()" >TMT в Рубли</button>
+        </div>
+    </div>
+    <footer>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const apiUrl = "https://www.cbr-xml-daily.ru/daily_json.js";
+            let exchangeRate;
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    exchangeRate = data.Valute.TMT.Value;
+                    document.getElementById("exchange-rate").textContent = exchangeRate;
+                })
+                .catch(error => {
+                    console.error("Error fetching exchange rate:", error);
+                    document.getElementById("exchange-rate").textContent = "Ошибка загрузки курса";
+                });
+
+            window.convertToTMT = function() {
+                const rub = parseFloat(document.getElementById("rub").value);
+                if (!isNaN(rub)) {
+                    const tmt = rub / exchangeRate;
+                    document.getElementById("tmt").value = tmt.toFixed(2);
+                }
+            };
+
+            window.convertToRUB = function() {
+                const tmt = parseFloat(document.getElementById("tmt").value);
+                if (!isNaN(tmt)) {
+                    const rub = tmt * exchangeRate;
+                    document.getElementById("rub").value = rub.toFixed(2);
+                }
+            };
+        });
+    </script>
+</body>
+</html>
