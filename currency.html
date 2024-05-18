@@ -6,6 +6,39 @@
     <link rel="icon" href="pictures/favicon-32x32.png">
     <link rel="icon" href="pictures/favicon-16x16.png">
     <link rel="stylesheet" href="main.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const apiUrl = "https://www.cbr-xml-daily.ru/daily_json.js";
+            let exchangeRate;
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    exchangeRate = data.Valute.TMT.Value;
+                    document.getElementById("exchange-rate").textContent = exchangeRate;
+                })
+                .catch(error => {
+                    console.error("Error fetching exchange rate:", error);
+                    document.getElementById("exchange-rate").textContent = "Ошибка загрузки курса";
+                });
+
+            window.convertToTMT = function() {
+                const rub = parseFloat(document.getElementById("rub").value);
+                if (!isNaN(rub)) {
+                    const tmt = rub / exchangeRate;
+                    document.getElementById("tmt").value = tmt.toFixed(2);
+                }
+            };
+
+            window.convertToRUB = function() {
+                const tmt = parseFloat(document.getElementById("tmt").value);
+                if (!isNaN(tmt)) {
+                    const rub = tmt * exchangeRate;
+                    document.getElementById("rub").value = rub.toFixed(2);
+                }
+            };
+        });
+    </script>
     <style>
          h1 {
             font-size: 1.5rem;
@@ -46,39 +79,5 @@
     </div>
     <footer>
     </footer>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const apiUrl = "https://www.cbr-xml-daily.ru/daily_json.js";
-            let exchangeRate;
-
-            fetch(apiUrl)
-                .then(response => response.json())
-                .then(data => {
-                    exchangeRate = data.Valute.TMT.Value;
-                    document.getElementById("exchange-rate").textContent = exchangeRate;
-                })
-                .catch(error => {
-                    console.error("Error fetching exchange rate:", error);
-                    document.getElementById("exchange-rate").textContent = "Ошибка загрузки курса";
-                });
-
-            window.convertToTMT = function() {
-                const rub = parseFloat(document.getElementById("rub").value);
-                if (!isNaN(rub)) {
-                    const tmt = rub / exchangeRate;
-                    document.getElementById("tmt").value = tmt.toFixed(2);
-                }
-            };
-
-            window.convertToRUB = function() {
-                const tmt = parseFloat(document.getElementById("tmt").value);
-                if (!isNaN(tmt)) {
-                    const rub = tmt * exchangeRate;
-                    document.getElementById("rub").value = rub.toFixed(2);
-                }
-            };
-        });
-    </script>
 </body>
 </html>
